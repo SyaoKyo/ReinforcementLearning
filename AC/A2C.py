@@ -38,7 +38,7 @@ class ActorCritic(tf.keras.Model):
 
 class A2C:
     def __init__(self, cfg):
-        self.model = ActorCritic(cfg.action_dim, cfg.hidden_dim)
+        self.model = ActorCritic(cfg.action_dim, cfg.hidden_dim, cfg.num_layers)
         self.optimizer = tf.keras.optimizers.Adam(learning_rate=cfg.lr)
         self.gamma = cfg.gamma
         self.state_dim = cfg.state_dim
