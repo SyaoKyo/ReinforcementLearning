@@ -72,7 +72,6 @@ class NoisyDense(tf.keras.layers.Layer):
         self.reset_noise()
 
     def call(self, x, training=None, **kwargs):
-        print(training)
         if training:
             weight = self.weight_mu + self.weight_sigma * tf.cast(self.weight_epsilon, dtype=tf.float32)
             bias = self.bias_mu + self.bias_sigma * tf.cast(self.bias_epsilon, dtype=tf.float32)
