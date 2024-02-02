@@ -1,3 +1,4 @@
+import os
 import time
 import gym
 import tensorflow as tf
@@ -263,7 +264,10 @@ class DQNAgent():
         # self.mae_meters.append(np.mean(history.history['mae']))
 
     def save_weights(self, filepath, overwrite=False):
-        self.estimation_model.save_weights(filepath + 'weights.h5f', overwrite=overwrite)
+        print("Saving weights...", filepath + 'weights.h5f')
+        filepath_ = os.path.join(filepath, 'weights.h5f')
+        self.estimation_model.save_weights(filepath_, overwrite=overwrite)
+        # self.estimation_model.save(filepath )
         # self.target_model.save_weights(filepath + 'weights.h5f', overwrite=overwrite)
 
     def load_weights(self, filepath):
